@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linktree Jasa & GTPS</title>
+  <style>
+    :root {
+      --text-color: white;
+      --button-bg: rgba(255, 255, 255, 0.1);
+      --button-hover: rgba(255, 255, 255, 0.3);
+    }
+
+    body.light-mode {
+      --text-color: #333;
+      --button-bg: rgba(0, 0, 0, 0.05);
+      --button-hover: rgba(0, 0, 0, 0.2);
+      filter: none;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('badut.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-color);
+      text-align: center;
+      padding: 20px;
+      transition: background 0.5s, color 0.5s;
+      animation: fadeIn 1.5s ease-in;
+      filter: grayscale(40%) brightness(0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .rain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.freeiconspng.com/uploads/rain-png-3.png') repeat;
+      background-size: cover;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-img-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid var(--text-color);
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+
+    .profile-img::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 20px;
+      background: rgba(173, 216, 230, 0.7);
+      border-radius: 50%;
+      top: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: tearDrop 2s infinite;
+      z-index: 3;
+    }
+
+    @keyframes tearDrop {
+      0% { opacity: 0; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(10px); }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+
+    h1 {
+      margin-top: 15px;
+      font-size: 26px;
+    }
+
+    .link-button {
+      display: block;
+      margin: 15px auto;
+      padding: 14px 20px;
+      width: 90%;
+      max-width: 350px;
+      background-color: var(--button-bg);
+      color: var(--text-color);
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+    }
+
+    .link-button:hover {
+      background-color: var(--button-hover);
+      box-shadow: 0 0 20px rgba(0,255,255,0.6);
+      transform: scale(1.05);
+    }
+
+    .contact, .cs {
+      margin-top: 25px;
+      font-size: 16px;
+    }
+
+    .cs a {
+      color: #00ffcc;
+      text-decoration: underline;
+    }
+
+    .toggle-mode {
+      margin-top: 30px;
+      cursor: pointer;
+      background: none;
+      border: 2px solid var(--text-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .toggle-mode:hover {
+      background: var(--button-hover);
+    }
+
+    .music-control {
+      margin-top: 20px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+      .link-button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rain-overlay"></div>
+
+  <audio id="bgMusic" autoplay muted loop>
+    <source src="ricoo.mp3" type="audio/mpeg">
+    Musik tidak didukung oleh browser Anda.
+  </audio>
+
+  <div class="container">
+    <div class="profile-img-container">
+      <img src="profilrico.jpg" alt="Foto Profil" class="profile-img">
+    </div>
+    <h1>🌐 Jasa & Promosi GTPS</h1>
+
+    <a href="https://jasawebsitekamu.com" class="link-button">🛠️ Jasa Pembuatan Website</a>
+    <a href="https://gtpspromote.com" class="link-button">🚀 Free Promote GTPS</a>
+    <a href="https://chat.whatsapp.com/linkgrupkamu" class="link-button">👥 Gabung Grup GTPS</a>
+    <a href="https://wa.me/6282335769274" class="link-button">📞 Hubungi Saya</a>
+
+    <div class="contact">
+      📱 Nomor: <strong>+62 823-357-9274</strong>
+    </div>
+
+    <div class="cs">
+      💬 Customer Service: <a href="https://wa.me/6282335769274" target="_blank">Klik untuk Chat CS</a>
+    </div>
+
+    <button class="toggle-mode" onclick="toggleMode()">🌙 Ganti Mode</button>
+
+    <div class="music-control">
+      <button onclick="toggleMusic()">🎵 Play/Pause Musik</button>
+    </div>
+
+    <footer>
+      &copy; 2025 Linktree by Kamu. Semua hak dilindungi.
+    </footer>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    const music = document.getElementById('bgMusic');
+
+    window.addEventListener('load', () => {
+      const playPromise = music.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log("Musik autoplay berhasil (muted). Menunggu interaksi untuk unmute...");
+        }).catch((error) => {
+          console.log("Autoplay diblokir. Menunggu interaksi pengguna...");
+        });
+      }
+    });
+
+    document.body.addEventListener('click', () => {
+      music.muted = false;
+      music.play();
+      console.log("Musik di-unmute dan diputar.");
+    }, { once: true });
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+
+</body>
+</html>
